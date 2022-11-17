@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var isPresenting: Bool = false
-    var uiImage: UIImage?
+    @State var uiImage: UIImage?
+    @State private var uploaded: String? = nil
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @ObservedObject var classifier: ImageClassifier
@@ -18,23 +19,32 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "camera")
-                    .onTapGesture {
-                        isPresenting = true
-                    }
-                    .font(.title)
-                    .foregroundColor(.blue)
-            }
-            .fullScreenCover(isPresented: $isPresenting) {
-                CameraView()
-                    .onDisappear {
-                        if uiImage != nil {
-                            ImageView(uiImage: uiImage, classifier: ImageClassifier())
-                            print("Camera closed")
+                Button {
+                    isPresenting = true
+                } label: {
+                    Image(systemName: "camera.viewfinder")
+                        .onTapGesture {
+                            isPresenting = true
                         }
-                    }
-                    .ignoresSafeArea()
+                        .font(.system(size: 50))
+                        .foregroundColor(.white)
+                }
+                .background(content: {
+                    Circle()
+                        .frame(width: 150, height: 150)
+                        .foregroundColor(Color("Orange"))
+                        .shadow(radius: 20, x: 20, y: 10)
+                })
+                .fullScreenCover(isPresented: $isPresenting) {
+                    CameraView(uiImage: $uiImage, isPresenting: $isPresenting)
+                        .onDisappear {
+                            if uiImage != nil {
+                                NavigationLink("", destination: ImageView(uiImage: uiImage, classifier: ImageClassifier()))
+                            }
+                        }
+                        .ignoresSafeArea()
             }
+        }
             
             
             

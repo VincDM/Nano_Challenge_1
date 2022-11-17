@@ -11,6 +11,9 @@ import SwiftUI
 
 struct CameraView: UIViewControllerRepresentable {
     
+    @Binding var uiImage: UIImage?
+    @Binding var isPresenting: Bool
+    
     typealias UIViewControllerType = UIImagePickerController
     
     func makeUIViewController(context: Context) -> UIViewControllerType {
@@ -36,13 +39,12 @@ extension CameraView {
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            print("Cancel pressed")
+            parent.isPresenting = false
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            }
+            parent.uiImage = info[.originalImage] as? UIImage
+            parent.isPresenting = false
         }
     }
 }
