@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D93839C29251BFE00C8F186 /* ShoesClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */; };
+		9D9383A329252D5C00C8F186 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9383A229252D5C00C8F186 /* ImagePicker.swift */; };
+		9D9383A529252E5400C8F186 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9383A429252E5400C8F186 /* ImageClassifier.swift */; };
+		9D9383A729252E7800C8F186 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9383A629252E7800C8F186 /* Classifier.swift */; };
+		9D9383A92925379D00C8F186 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9D9383A82925379D00C8F186 /* MobileNetV2.mlmodel */; };
 		9D9F6B602923D9D400EB91E5 /* NC1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F6B5F2923D9D400EB91E5 /* NC1App.swift */; };
 		9D9F6B622923D9D400EB91E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F6B612923D9D400EB91E5 /* ContentView.swift */; };
 		9D9F6B642923D9D500EB91E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F6B632923D9D500EB91E5 /* Assets.xcassets */; };
 		9D9F6B672923D9D500EB91E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F6B662923D9D500EB91E5 /* Preview Assets.xcassets */; };
+		9DF03B1D29268DF400E950F2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF03B1C29268DF400E950F2 /* CameraView.swift */; };
+		9DF03B1F2926926E00E950F2 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF03B1E2926926E00E950F2 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShoesClassifier.mlmodel; sourceTree = "<group>"; };
+		9D93839F2925262000C8F186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9D9383A229252D5C00C8F186 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9D9383A429252E5400C8F186 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		9D9383A629252E7800C8F186 /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
+		9D9383A82925379D00C8F186 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		9D9F6B5C2923D9D400EB91E5 /* NC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9F6B5F2923D9D400EB91E5 /* NC1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC1App.swift; sourceTree = "<group>"; };
 		9D9F6B612923D9D400EB91E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D9F6B632923D9D500EB91E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D9F6B662923D9D500EB91E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9DF03B1C29268DF400E950F2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		9DF03B1E2926926E00E950F2 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D7800B32923F5BF00878AA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */,
+				9D9383A82925379D00C8F186 /* MobileNetV2.mlmodel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9D9F6B532923D9D400EB91E5 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +75,15 @@
 		9D9F6B5E2923D9D400EB91E5 /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
+				9D93839F2925262000C8F186 /* Info.plist */,
+				9D7800B32923F5BF00878AA1 /* Models */,
 				9D9F6B5F2923D9D400EB91E5 /* NC1App.swift */,
 				9D9F6B612923D9D400EB91E5 /* ContentView.swift */,
+				9D9383A229252D5C00C8F186 /* ImagePicker.swift */,
+				9D9383A429252E5400C8F186 /* ImageClassifier.swift */,
+				9D9383A629252E7800C8F186 /* Classifier.swift */,
+				9DF03B1C29268DF400E950F2 /* CameraView.swift */,
+				9DF03B1E2926926E00E950F2 /* ImageView.swift */,
 				9D9F6B632923D9D500EB91E5 /* Assets.xcassets */,
 				9D9F6B652923D9D500EB91E5 /* Preview Content */,
 			);
@@ -137,8 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9383A92925379D00C8F186 /* MobileNetV2.mlmodel in Sources */,
 				9D9F6B622923D9D400EB91E5 /* ContentView.swift in Sources */,
+				9D9383A329252D5C00C8F186 /* ImagePicker.swift in Sources */,
+				9D9383A529252E5400C8F186 /* ImageClassifier.swift in Sources */,
+				9D93839C29251BFE00C8F186 /* ShoesClassifier.mlmodel in Sources */,
+				9D9383A729252E7800C8F186 /* Classifier.swift in Sources */,
+				9DF03B1F2926926E00E950F2 /* ImageView.swift in Sources */,
 				9D9F6B602923D9D400EB91E5 /* NC1App.swift in Sources */,
+				9DF03B1D29268DF400E950F2 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +308,8 @@
 				DEVELOPMENT_TEAM = 5X58L7SDHC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC1/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +339,8 @@
 				DEVELOPMENT_TEAM = 5X58L7SDHC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC1/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
