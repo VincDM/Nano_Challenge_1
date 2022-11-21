@@ -10,54 +10,67 @@ import SwiftUI
 struct ImageView: View {
     
     @State var uiImage: UIImage?
-    @ObservedObject var classifier: ImageClassifier
+    var classifier: ImageClassifier
     
     var body: some View {
         VStack {
-            if uiImage != nil {
+            if (uiImage != nil) {
                 Image(uiImage: uiImage!)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 400, height: 600)
-                    .border(Color.pink)
+                    .frame(width: 320, height: 500)
                     .clipped()
+                    .cornerRadius(15)
                     .shadow(color: .black, radius: 8, x: 0, y: 5)
             }
             else {
-                Image(systemName: "questionmark.circle")
+                Image(systemName: "questionmark.square.fill")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 400, height: 600)
-                    .border(Color.pink)
+                    .frame(width: 320, height: 500)
                     .clipped()
+                    .cornerRadius(15)
                     .shadow(color: .black, radius: 8, x: 0, y: 5)
             }
             
-            if let imageClass = classifier.imageClass {
+            if (uiImage != nil) {
                 HStack {
                     Text("Brand name:")
-                        .font(.body)
+                        .font(.title2)
                         .bold()
-                    Text(imageClass)
+                    
+                    Text(getImageClass())
+                        .font(.title2)
                 }
                 .padding(.top, 50)
             }
             else {
                 HStack {
                     Text("Brand name:")
-                        .font(.body)
+                        .font(.title2)
                         .bold()
+                    
                     Text("Not found")
+                        .font(.title2)
                 }
                 .padding(.top, 50)
             }
         }
         .font(.subheadline)
     }
+    
+    func detectImage(uiImage: UIImage!) {
+        classifier.detect(uiImage: uiImage!)
+    }
+    
+    func getImageClass() -> String {
+        detectImage(uiImage: uiImage)
+        return classifier.imageClass!
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(classifier: ImageClassifier())
+        ImageView(uiImage: nil, classifier: ImageClassifier())
     }
 }

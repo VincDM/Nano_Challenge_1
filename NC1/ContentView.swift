@@ -11,40 +11,96 @@ struct ContentView: View {
     
     @State var isPresenting: Bool = false
     @State var uiImage: UIImage?
-    @State private var uploaded: String? = nil
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
+    @State var uploaded: Bool = false
     @ObservedObject var classifier: ImageClassifier
     
     var body: some View {
         NavigationView {
             VStack {
+                HStack {
+                    Text("AI Search")
+                        .font(.title2)
+                        .bold()
+                        .padding(.leading)
+                    
+                    Spacer()
+                }
+                
+                HStack {
+                    Text("Use AI to search for products")
+                        .font(Font.custom("AddingtonCF-Thin", size: 26, relativeTo: .title2))
+                        .padding(.leading)
+                    
+                    Spacer()
+                }
+                
+                Rectangle()
+                    .frame(width: 1000, height: 1)
+                    .foregroundColor(.gray)
+                
+                Group {
+                    HStack {
+                        Image(systemName: "camera.viewfinder")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 80, height: 80)
+                            .clipped()
+                            .foregroundColor(Color("Orange"))
+                        
+                        Image("Arrow")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipped()
+                            .padding(.top, 150)
+                    }
+                    
+                    HStack {
+                        Image("Shoes")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .clipped()
+                    }
+                }
+                .padding(.top, 30)
+                
+                Spacer()
+                
                 Button {
                     isPresenting = true
+                    uiImage = nil
                 } label: {
-                    Image(systemName: "camera.viewfinder")
-                        .onTapGesture {
-                            isPresenting = true
-                        }
-                        .font(.system(size: 50))
+                    Text("Take a photo")
+                        .font(.title3)
+                        .bold()
                         .foregroundColor(.white)
                 }
                 .background(content: {
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .frame(width: 350, height: 50)
+                })
+                /*.background(content: {
                     Circle()
-                        .frame(width: 150, height: 150)
+                        .frame(width: 120, height: 120)
                         .foregroundColor(Color("Orange"))
                         .shadow(radius: 20, x: 20, y: 10)
-                })
+                })*/
                 .fullScreenCover(isPresented: $isPresenting) {
                     CameraView(uiImage: $uiImage, isPresenting: $isPresenting)
-                        .onDisappear {
+                        .onDisappear() {
                             if uiImage != nil {
-                                NavigationLink("", destination: ImageView(uiImage: uiImage, classifier: ImageClassifier()))
+                                uploaded = true
                             }
                         }
                         .ignoresSafeArea()
+                }
+                
+                // Showing image into ImageView
+                NavigationLink("", destination: ImageView(uiImage: uiImage, classifier: ImageClassifier()), isActive: $uploaded)
             }
-        }
             
             
             
