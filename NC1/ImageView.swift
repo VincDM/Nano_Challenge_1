@@ -10,30 +10,31 @@ import SwiftUI
 struct ImageView: View {
     
     @State var uiImage: UIImage?
+    @State var showContent = false
     var classifier: ImageClassifier
     
     var body: some View {
-        VStack {
-            if (uiImage != nil) {
-                Image(uiImage: uiImage!)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 320, height: 500)
-                    .clipped()
-                    .cornerRadius(15)
-                    .shadow(color: .black, radius: 8, x: 0, y: 5)
-            }
-            else {
-                Image(systemName: "questionmark.square.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 320, height: 500)
-                    .clipped()
-                    .cornerRadius(15)
-                    .shadow(color: .black, radius: 8, x: 0, y: 5)
-            }
-            
-            if (uiImage != nil) {
+        if showContent {
+            VStack {
+                if (uiImage != nil) {
+                    Image(uiImage: uiImage!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 320, height: 500)
+                        .clipped()
+                        .cornerRadius(15)
+                        .shadow(color: .black, radius: 8, x: 0, y: 5)
+                }
+                else {
+                    Image(systemName: "questionmark.square.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 320, height: 500)
+                        .clipped()
+                        .cornerRadius(15)
+                        .shadow(color: .black, radius: 8, x: 0, y: 5)
+                }
+                
                 HStack {
                     Text("Brand name:")
                         .font(.title2)
@@ -44,19 +45,15 @@ struct ImageView: View {
                 }
                 .padding(.top, 50)
             }
-            else {
-                HStack {
-                    Text("Brand name:")
-                        .font(.title2)
-                        .bold()
-                    
-                    Text("Not found")
-                        .font(.title2)
+        }
+        else {
+            Loading()
+            .onAppear() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    showContent = true
                 }
-                .padding(.top, 50)
             }
         }
-        .font(.subheadline)
     }
     
     func detectImage(uiImage: UIImage!) {

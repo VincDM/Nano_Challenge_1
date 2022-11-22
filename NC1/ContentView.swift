@@ -82,12 +82,7 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .frame(width: 350, height: 50)
                 })
-                /*.background(content: {
-                    Circle()
-                        .frame(width: 120, height: 120)
-                        .foregroundColor(Color("Orange"))
-                        .shadow(radius: 20, x: 20, y: 10)
-                })*/
+                
                 .fullScreenCover(isPresented: $isPresenting) {
                     CameraView(uiImage: $uiImage, isPresenting: $isPresenting)
                         .onDisappear() {
@@ -101,33 +96,6 @@ struct ContentView: View {
                 // Showing image into ImageView
                 NavigationLink("", destination: ImageView(uiImage: uiImage, classifier: ImageClassifier()), isActive: $uploaded)
             }
-            
-            
-            
-            /*VStack {
-             Button(action: {
-             if uiImage != nil {
-             classifier.detect(uiImage: uiImage!)
-             }
-             }) {
-             Image(systemName: "bolt.fill")
-             .foregroundColor(.orange)
-             .font(.title)
-             }
-             
-             
-             }
-             }
-             .fullScreenCover(isPresented: $isPresenting){
-             ImagePicker(uiImage: $uiImage, isPresenting:  $isPresenting, sourceType: $sourceType)
-             .onDisappear {
-             if uiImage != nil {
-             classifier.detect(uiImage: uiImage!)
-             }
-             }
-             .ignoresSafeArea()
-             }
-             .padding()*/
         }
     }
     
