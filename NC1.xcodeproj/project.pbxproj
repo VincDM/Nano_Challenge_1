@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D03C43D292FB79B000D9BB2 /* ShoesModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9D03C43C292FB79B000D9BB2 /* ShoesModel.mlmodel */; };
 		9D48B3B92927C63F00E2C0B4 /* AddingtonCF-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D48B3B82927C63F00E2C0B4 /* AddingtonCF-Thin.ttf */; };
 		9D93839C29251BFE00C8F186 /* ShoesClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */; };
 		9D9383A529252E5400C8F186 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9383A429252E5400C8F186 /* ImageClassifier.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D03C43C292FB79B000D9BB2 /* ShoesModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShoesModel.mlmodel; sourceTree = "<group>"; };
 		9D48B3B82927C63F00E2C0B4 /* AddingtonCF-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AddingtonCF-Thin.ttf"; sourceTree = "<group>"; };
 		9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShoesClassifier.mlmodel; sourceTree = "<group>"; };
 		9D93839F2925262000C8F186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		9D7800B32923F5BF00878AA1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D03C43C292FB79B000D9BB2 /* ShoesModel.mlmodel */,
 				9D93839B29251BFE00C8F186 /* ShoesClassifier.mlmodel */,
 				9D9383A82925379D00C8F186 /* MobileNetV2.mlmodel */,
 			);
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9383A92925379D00C8F186 /* MobileNetV2.mlmodel in Sources */,
+				9D03C43D292FB79B000D9BB2 /* ShoesModel.mlmodel in Sources */,
 				9DD4372F292D84540097C159 /* Loading.swift in Sources */,
 				9D9F6B622923D9D400EB91E5 /* ContentView.swift in Sources */,
 				9D9383A529252E5400C8F186 /* ImageClassifier.swift in Sources */,
